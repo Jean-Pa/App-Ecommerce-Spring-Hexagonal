@@ -29,5 +29,5 @@ public class ProductEntity {
 
 
     @ManyToOne
-    private UserEntity userEntity;
+    private UserEntity userEntity                                                                                                               ;
 }
