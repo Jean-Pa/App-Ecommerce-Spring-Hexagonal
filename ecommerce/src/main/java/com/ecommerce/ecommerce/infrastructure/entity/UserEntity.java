@@ -1,17 +1,20 @@
-package com.ecommerce.ecommerce.domain;
+package com.ecommerce.ecommerce.infrastructure.entity;
 
-import lombok.AllArgsConstructor;
+
+import com.ecommerce.ecommerce.domain.UserType;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-
+@Entity
+@Table(name = "users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class User {
-
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
@@ -21,6 +24,8 @@ public class User {
     private String address;
     private String cellphone;
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private UserType userType;
     private LocalDateTime dateCreated;
 }
