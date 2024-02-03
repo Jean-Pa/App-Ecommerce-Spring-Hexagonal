@@ -1,9 +1,15 @@
 package com.ecommerce.ecommerce.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Data
+@AllArgsConstructor
 public class Product {
 
     private Long id;
@@ -18,7 +24,15 @@ public class Product {
 
     private User user;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public Product() {
-        UUID.randomUUID().toString();
+        this.setCode(UUID.randomUUID().toString());
     }
 }

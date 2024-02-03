@@ -23,6 +23,7 @@ public interface ProductMapper {
                     @Mapping(source = "userEntity", target = "user")
             }
     )
+
     Product toProduct(ProductEntity productEntity);
     Iterable<Product> toProducts(Iterable<ProductEntity> productEntities);
 
