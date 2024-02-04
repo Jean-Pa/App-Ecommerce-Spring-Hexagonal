@@ -10,7 +10,9 @@
   <title>FIDELAC MARKET</title>
 </head>
 <body>
-  
+  <div th:include="admin/template_admin.html::header">
+
+  </div>
 
 <section class="content">
   <div class="content1">
@@ -78,12 +80,9 @@
 
 <!-- <h1 class="pheading"></h1> -->
 
-<footer class="py-5 bg-dark">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Spring eCommerce 2023</p>
-  </div>
-  <!-- /.container -->
-</footer>
+<div th:include="admin/template_admin.html::footer">
+
+</div>
 
 <!-- Bootstrap core JavaScript -->
 <script th:src="@{vendor/jquery/jquery.min.js}"></script>
