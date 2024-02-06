@@ -29,12 +29,21 @@ public class ProductService {
     }
 
     public Product saveProduct(Product product){
-        User user=new User();
-        user.setId(1L);
-        product.setDateCreated(LocalDateTime.now());
-        product.setDateUpdated(LocalDateTime.now());
-        product.setUser(user);
-       return repository.saveProduct(product);
+        if(product.getId() == null){
+            User user=new User();
+            user.setId(1L);
+            product.setDateCreated(LocalDateTime.now());
+            product.setDateUpdated(LocalDateTime.now());
+            product.setUser(user);
+            return repository.saveProduct(product);
+        }else{
+            Product productDB= repository.getProductById(product.getId());
+            product.setCode(productDB.getCode());
+            product.setUser(productDB.getUser());
+            product.setDateCreated(productDB.getDateCreated());
+            product.setDateUpdated(LocalDateTime.now());
+            return repository.saveProduct(product);
+        }
 
     }
 
