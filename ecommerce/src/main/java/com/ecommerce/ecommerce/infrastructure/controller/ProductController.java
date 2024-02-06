@@ -1,6 +1,7 @@
 package com.ecommerce.ecommerce.infrastructure.controller;
 
 
+import com.ecommerce.ecommerce.application.service.ProductService;
 import com.ecommerce.ecommerce.domain.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 public class ProductController {
 
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/create")
     public String create(){
@@ -22,6 +28,8 @@ public class ProductController {
 
     @PostMapping("/save-product")
     public String saveProduct(Product product){
-        return "admin/products/create";
+        productService.saveProduct(product);
+       // return "admin/products/create";
+        return "redirect:/admin";
     }
 }

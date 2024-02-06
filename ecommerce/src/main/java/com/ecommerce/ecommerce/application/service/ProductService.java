@@ -4,6 +4,8 @@ import com.ecommerce.ecommerce.application.repository.ProductRepository;
 import com.ecommerce.ecommerce.domain.Product;
 import com.ecommerce.ecommerce.domain.User;
 
+import java.time.LocalDateTime;
+
 public class ProductService {
     private final ProductRepository repository;
 
@@ -27,6 +29,11 @@ public class ProductService {
     }
 
     public Product saveProduct(Product product){
+        User user=new User();
+        user.setId(1L);
+        product.setDateCreated(LocalDateTime.now());
+        product.setDateUpdated(LocalDateTime.now());
+        product.setUser(user);
        return repository.saveProduct(product);
 
     }
