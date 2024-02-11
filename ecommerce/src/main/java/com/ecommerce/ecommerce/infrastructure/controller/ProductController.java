@@ -29,8 +29,11 @@ public class ProductController {
         return "admin/products/create";
     }
 
+
+
+    //El request param es el nombre del frontend con lo que viene la imagen
     @PostMapping("/save-product")
-    public String saveProduct(Product product, MultipartFile multipartFile) throws IOException {
+    public String saveProduct(Product product,@RequestParam("img") MultipartFile multipartFile) throws IOException {
         productService.saveProduct(product, multipartFile);
        // return "admin/products/create";
         return "redirect:/admin";
