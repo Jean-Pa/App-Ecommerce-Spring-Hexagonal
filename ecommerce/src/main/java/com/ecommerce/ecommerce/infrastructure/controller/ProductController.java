@@ -8,6 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/admin/products")
@@ -27,8 +30,8 @@ public class ProductController {
     }
 
     @PostMapping("/save-product")
-    public String saveProduct(Product product){
-        productService.saveProduct(product);
+    public String saveProduct(Product product, MultipartFile multipartFile) throws IOException {
+        productService.saveProduct(product, multipartFile);
        // return "admin/products/create";
         return "redirect:/admin";
     }
