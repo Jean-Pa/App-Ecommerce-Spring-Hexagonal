@@ -1,7 +1,9 @@
 package com.ecommerce.ecommerce.infrastructure.configuration;
 
 import com.ecommerce.ecommerce.application.repository.ProductRepository;
+import com.ecommerce.ecommerce.application.repository.StockRepository;
 import com.ecommerce.ecommerce.application.service.ProductService;
+import com.ecommerce.ecommerce.application.service.StockService;
 import com.ecommerce.ecommerce.application.service.UploadFile;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,4 +21,9 @@ public class BeanConfiguration {
     public UploadFile uploadFile(){
         return new UploadFile();
     }
+
+//    @Bean
+//    public StockService stockService(StockRepository stockRepository){
+//        return new StockService(stockRepository);
+//    }
 }
