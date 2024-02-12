@@ -25,7 +25,7 @@ public interface Stockmapper {
 
     })
     Stock toStock(StockEntity stockEntity);
-    List<Stock> toStocks(List<ProductEntity> productEntities);
+    List<Stock> toStocks(List<StockEntity> stockEntities);
 
     @InheritInverseConfiguration
     StockEntity toStockEntity(Stock stock);
