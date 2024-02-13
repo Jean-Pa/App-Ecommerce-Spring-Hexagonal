@@ -22,8 +22,8 @@ public class BeanConfiguration {
         return new UploadFile();
     }
 
-//    @Bean
-//    public StockService stockService(StockRepository stockRepository){
-//        return new StockService(stockRepository);
-//    }
+    @Bean
+    public StockService stockService(StockRepository stockRepository){
+        return new StockService(stockRepository);
+   }
 }
