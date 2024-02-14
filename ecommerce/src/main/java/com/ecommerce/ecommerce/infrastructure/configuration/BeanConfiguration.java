@@ -5,6 +5,7 @@ import com.ecommerce.ecommerce.application.repository.StockRepository;
 import com.ecommerce.ecommerce.application.service.ProductService;
 import com.ecommerce.ecommerce.application.service.StockService;
 import com.ecommerce.ecommerce.application.service.UploadFile;
+import com.ecommerce.ecommerce.application.service.ValidateStock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,5 +26,10 @@ public class BeanConfiguration {
     @Bean
     public StockService stockService(StockRepository stockRepository){
         return new StockService(stockRepository);
+   }
+
+   @Bean
+    public ValidateStock validateStock(StockService stockService){
+        return new ValidateStock(stockService);
    }
 }
