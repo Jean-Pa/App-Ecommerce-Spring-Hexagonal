@@ -14,7 +14,7 @@
   <title>FIDELAC MARKET</title>
 </head>
 <body>
-<div th:insert = "~{user/template_user::header}"></div>
+<div th:include="user/template_user.html::header"></div>
 
 <section class="content">
   <div class="content1">
@@ -26,52 +26,16 @@
   </div>
 </section>
 
-<div class="container">
+<div class="container" >
   <div class="row text-center">
-
-    <div class="col-lg-3 col-md-6 mb-4">
+    <div class="col-lg-3 col-md-6 mb-4" th:each="product:${products}">
       <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+        <img class="card-img-top" th:src="@{/images/{img} (img = ${product.image})}" alt="">
         <div class="card-body">
-          <p class="card-text">Nombre del producto.</p>
+          <p class="card-text" th:text="${product.name}">Nombre del producto.</p>
         </div>
         <div class="card-footer">
-          <a href="productohome.html" class="btn btn-success">Ver producto</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-        <div class="card-body">
-          <p class="card-text">Nombre del producto.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-success">Ver producto</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-        <div class="card-body">
-          <p class="card-text">Nombre del producto.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-success">Ver producto</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-        <div class="card-body">
-          <p class="card-text">Nombre del producto.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-success">Ver producto</a>
+          <a th:href="@{/home/product-detail/{id} (id=${product.id})}" class="btn btn-success">Ver producto</a>
         </div>
       </div>
     </div>
