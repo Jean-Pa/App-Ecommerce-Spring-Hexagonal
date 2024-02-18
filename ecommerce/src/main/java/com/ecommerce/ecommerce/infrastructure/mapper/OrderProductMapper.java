@@ -17,7 +17,7 @@ public interface OrderProductMapper {
                     //Con el pk ingresamos al objeto y buscamos cual estamos asigando para cambiar
                     @Mapping(source = "pk.productEntity",target = "product"),
                     @Mapping(source = "quatity",target = "quatity"),
-                    @Mapping(source = "pk.orderEntity",target = "order"),
+                    @Mapping(source = "pk.orderEntity",target = "order")
             }
     )
     OrderProduct toOrderProduct(OrderProductEntity orderProductEntity);
