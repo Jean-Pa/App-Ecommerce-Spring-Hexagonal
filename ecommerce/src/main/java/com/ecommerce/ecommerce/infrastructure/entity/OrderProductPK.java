@@ -14,4 +14,20 @@ public class OrderProductPK {
     //ManyToOne el detalle de una orden puede tener muchos productos
     @ManyToOne(fetch = FetchType.LAZY)
     private ProductEntity productEntity;
+
+    public OrderEntity getOrderEntity() {
+        return orderEntity;
+    }
+
+    public void setOrderEntity(OrderEntity orderEntity) {
+        this.orderEntity = orderEntity;
+    }
+
+    public ProductEntity getProductEntity() {
+        return productEntity;
+    }
+
+    public void setProductEntity(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+    }
 }
