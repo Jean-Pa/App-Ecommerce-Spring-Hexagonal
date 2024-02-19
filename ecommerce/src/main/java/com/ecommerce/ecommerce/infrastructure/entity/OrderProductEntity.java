@@ -13,7 +13,7 @@ import lombok.Data;
 public class OrderProductEntity {
     @EmbeddedId
     private OrderProductPK pk;
-    private Integer quatity;
+    private Integer quantity;
 
     public OrderProductPK getPk() {
         return pk;
@@ -24,10 +24,10 @@ public class OrderProductEntity {
     }
 
     public Integer getQuatity() {
-        return quatity;
+        return quantity;
     }
 
     public void setQuatity(Integer quatity) {
-        this.quatity = quatity;
+        this.quantity = quatity;
     }
 }

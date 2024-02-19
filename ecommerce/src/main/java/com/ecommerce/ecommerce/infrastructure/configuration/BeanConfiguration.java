@@ -1,5 +1,6 @@
 package com.ecommerce.ecommerce.infrastructure.configuration;
 
+import com.ecommerce.ecommerce.application.repository.OrderProductRepository;
 import com.ecommerce.ecommerce.application.repository.OrderRepository;
 import com.ecommerce.ecommerce.application.repository.ProductRepository;
 import com.ecommerce.ecommerce.application.repository.StockRepository;
@@ -34,5 +35,9 @@ public class BeanConfiguration {
    @Bean
     public OrderService orderService(OrderRepository orderRepository){
         return new OrderService(orderRepository);
+   }
+   @Bean
+    public OrderProductService orderProductService(OrderProductRepository orderProductRepository){
+        return new OrderProductService(orderProductRepository);
    }
 }

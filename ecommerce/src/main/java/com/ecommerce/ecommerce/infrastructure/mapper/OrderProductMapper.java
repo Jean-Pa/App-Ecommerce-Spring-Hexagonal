@@ -9,14 +9,14 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spirng", uses = {ProductMapper.class, OrderProductMapper.class})
+@Mapper(componentModel = "spring", uses = {ProductMapper.class, OrderProductMapper.class})
 public interface OrderProductMapper {
 
     @Mappings(
             {
                     //Con el pk ingresamos al objeto y buscamos cual estamos asigando para cambiar
                     @Mapping(source = "pk.productEntity",target = "product"),
-                    @Mapping(source = "quatity",target = "quatity"),
+                    @Mapping(source = "quantity",target = "quantity"),
                     @Mapping(source = "pk.orderEntity",target = "order")
             }
     )
