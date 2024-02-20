@@ -66,4 +66,9 @@ public class CartService {
                 (integer, itemCart)->itemCarts.add(itemCart)
         );
     }
+
+    //Para mirar por consola
+    public List<ItemCart> getItemCarts(){
+        return itemCarts;
+    }
 }

@@ -2,12 +2,14 @@ package com.ecommerce.ecommerce.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 
 @Data
 @AllArgsConstructor
+@ToString
 public class ItemCart {
     private Long idProduct;
     private String nameProduct;
