@@ -37,11 +37,11 @@ public class HomeController {
     public String productDetail(@PathVariable Long id, Model model){
         List<Stock> stocks = stockService.getStockByProduct(productService.getProductById(id));
 
-        //Integer lastBalance = stocks.get(stocks.size()).getBalance();
+        Integer lastBalance = stocks.get(stocks.size()-1).getBalance();
 
         model.addAttribute("product", productService.getProductById(id));
        // model.addAttribute("stock",lastBalance);
-
+        model.addAttribute("stock", lastBalance);
 
 
         return "user/productdetail";
