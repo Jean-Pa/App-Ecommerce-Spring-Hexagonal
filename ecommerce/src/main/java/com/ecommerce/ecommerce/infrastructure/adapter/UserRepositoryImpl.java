@@ -3,7 +3,9 @@ package com.ecommerce.ecommerce.infrastructure.adapter;
 import com.ecommerce.ecommerce.application.repository.UserRepository;
 import com.ecommerce.ecommerce.domain.User;
 import com.ecommerce.ecommerce.infrastructure.mapper.UserMapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 
     private final UserCrudRepository userCrudRepository;
