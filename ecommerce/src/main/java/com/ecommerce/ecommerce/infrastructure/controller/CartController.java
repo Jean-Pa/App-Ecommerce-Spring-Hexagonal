@@ -5,10 +5,7 @@ import com.ecommerce.ecommerce.application.service.CartService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
@@ -39,6 +36,8 @@ public class CartController {
     }
 
 
+    //En este metodo es que pasamos los productos o items al carrito
+    //t luego tambien pasamos el precio total
     @GetMapping("/get-cart")
     public String getCart(Model model){
         showCart();
@@ -47,4 +46,13 @@ public class CartController {
         model.addAttribute("total",cartService.getTotalCart());
         return "user/cart/cart";
     }
+
+    //Este metodo es para eliminar un item del carrito por el id
+    @GetMapping("/delete-item-cart/{id}")
+    public String deleteItemCart(@PathVariable Long id){
+        cartService.removeItemCart(id);
+        return "redirect:/user/cart/get-cart";
+    }
+
+
 }
