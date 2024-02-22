@@ -89,6 +89,8 @@ public class OrderController {
                     stock.setDateCreated(LocalDateTime.now());
                     stock.setProduct(op.getProduct());
                     stock.setDescription("Por venta");
+                    //Seteamo la entrada en 0 para que no nos de error
+                    stock.setUnitIn(0);
                     //Aqui op traeria la cantidad de salida de producto
                     stock.setUnitOut(op.getQuantity() );
 
